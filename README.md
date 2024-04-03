@@ -1,6 +1,13 @@
 This is the complete guide to creating your own application database manageable by "[AM](https://github.com/ivan-hc/AM)" and "[AppMan](https://github.com/ivan-hc/AppMan)", the APT/PacMan/DNF style AppImage package managers.
 
-# Step 1: create an online repsitory
+-------------------------------
+- [Step 1: create an online repository](#step-1-create-an-online-repository)
+- [Step 2: create the script "neodb"](#step-2-create-the-script-neodb)
+  - [Which options use the above variables?](#which-options-use-the-above-variables)
+  - [Where should I place the "neodb" script?](#where-should-i-place-the-neodb-script)
+-------------------------------
+
+# Step 1: create an online repository
 The application installation and management modules in "AM"/"AppMan" use `wget` to download scripts and `curl` to determine their existence.
 
 Below is the structure of a repository for x86_64 applications:
@@ -34,15 +41,16 @@ AMCATALOGUE="https://your-domain.net"
 AMCATALOGUEMARKDOWNS="https://your-domain.net/info"
 #NEODBFLAG=nowarn
 ```
+remember to make it executable, command `chmod a+x neodb`.
 
-### Which commands use the above variables?
+### Which options use the above variables?
 - **APPSDB** is used by `-i`/`install`, `-d`/`download` and `-s`/`sync`
 - **APPSLISTDB** is used by `-l`/`list` and `-q`/`query`
 - **AMCATALOGUE** is used by `-h`/`help` and from the main CLI "AM"/"AppMan" itself, but only to identify **and notify** the source of the apps
 - **AMCATALOGUEMARKDOWNS** is used by `-a`/`about`
 - **NEODBFLAG** instead is a dumb variable, if uncommented, you will not receive any notification message about using a third-party database (see "AMCATALOGUE")
 
-### Where should I place the script?
+### Where should I place the "neodb" script?
 The "$AMPATH" variable that you often find in the CLI and in modules indicates the path:
 - For "AM" the path is always /opt/am;
 - For "AppMan" instead is the "appman" directory into the path you decided to install the apps in your "$HOME", for example, if you've choosen "Applications", then the path will be $HOME/Applications/appman
