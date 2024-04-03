@@ -8,6 +8,8 @@ This is the complete guide to creating your own applications database manageable
 - [Step 3: create an installation script](#step-3-create-an-installation-script)
   - [Is it mandatory to use templates for "AM"?](#is-it-mandatory-to-use-templates-for-am)
   - [How do "AM" installation scripts work?](#how-do-am-installation-scripts-work)
+- [Step 4: the list](#step-4-the-list)
+- [Step 5: the markdown](#step-5-the-markdown)
 -------------------------------
 
 # Step 1: create an online repository
@@ -81,3 +83,25 @@ For this topic, I wrote a [wiki](https://github.com/ivan-hc/AM/wiki) in the earl
 6. creation and positioning of launcher and icon, if it is an AppImage, the script will try to extract them from the bundle itself with the "`--appimage-extract` option", otherwise the launcher will have to be included in the script and the icon searched among files extracted or downloaded.
 
 There are also two other optional/obsolete steps, which are more oriented towards standalone use of the script, one is changing the permissions in the application directory (to allow updates with "AM" and without root privileges), the other it's a final message about the origin of the app... but no one knows "AM" anyway (I don't even know why I'm writing this guide... bah...).
+
+-------------------------------
+
+# Step 4: the list
+To allow other modules to use the names from the list (for example, including them among the terms to use with "`bash-completion`" or to create other lists) this formatting is needed:
+```
+◆ app1 : Description for this application
+◆ app2 : Description for another app
+◆ appN : Also this is a description
+```
+NOTE the spaces around the application name. Those are important in order to separate names from symbols and description.
+
+As for the length of the description, you are free to use as much space as you like. I usually try not to exceed 80 characters in total (maximum space occupied by default by many terminal windows).
+
+If you used the `-t` option to create the script, the message will definitely be in the "list" file created near the x86_64 directory (on the desktop, in the "am-scripts" directory).
+
+-------------------------------
+
+# Step 5: the markdown
+This file is also created with the `-t` option, a template can be found at https://github.com/Portable-Linux-Apps/Portable-Linux-Apps.github.io/blob/main/apps/.template , which is the same one that is used as the basic model for compiling the pages of my catalogue, https://portable-linux-apps.github.io
+
+However, the use we have to make of it with "neodb" is to get information on the screen, from the terminal. If you don't load that file, using the `-a`/`about` option will give you an error message. This option (contained in the database.am module) removes the images, videos and buttons at the bottom (the ones you see in the template I linked to you), to display only the title, description and URL, but also adding the " status", i.e. whether the program is installed (and therefore also shows the occupied space) or not.
