@@ -101,7 +101,7 @@ If you used the `-t` option to create the script, the message will definitely be
 
 NOTE: remember to call the list "x86_64-apps".
 
-In our example we are working on a 64bit/amd64 architecture. If you intend to use "AM"/"AppMan" to manage programs for other architectures, remember to name the file including that architecture (for example, on 32bit systems the file should be called "i686-apps", for ARM64 instead " aarch64-apps", and so on...). Use the "`echo "$HOSTTYPE"`" command to discover your architecture. it is already included in the main CLI to manage multiple architectures if the application database includes multiple architectures.
+In our example we are working on a 64bit/amd64 architecture. If you intend to use "AM"/"AppMan" to manage programs for other architectures, remember to name the file including that architecture (for example, on 32bit systems the file should be called "i686-apps", for ARM64 instead " aarch64-apps", and so on...). Use the "`echo "$HOSTTYPE"`" command to discover your architecture. it is already included in the main CLI (see "$arch" environment variable) to manage multiple architectures if the application database includes multiple architectures.
 
 -------------------------------
 
