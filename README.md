@@ -10,6 +10,7 @@ This is the complete guide to creating your own applications database manageable
   - [How do "AM" installation scripts work?](#how-do-am-installation-scripts-work)
 - [Step 4: the list](#step-4-the-list)
 - [Step 5: the markdown](#step-5-the-markdown)
+- [Conclusions](#conclusions)
 -------------------------------
 
 # Step 1: create an online repository
@@ -36,7 +37,6 @@ By convention, Markdorn files will have the same name as their respective script
 NOTE: You can give the directories any names you like, but the list must necessarily be called "**x86_64-apps**".
 
 -------------------------------
-
 
 # Step 2: create the script "neodb"
 With the data from step 1 (above) available, here's what the "neodb" script should look like:
@@ -82,7 +82,7 @@ For this topic, I wrote a [wiki](https://github.com/ivan-hc/AM/wiki) in the earl
 5. creation of the AM-updater script, containing functions to update the application, and most of the time includes steps 2 and 3 just mentioned;
 6. creation and positioning of launcher and icon, if it is an AppImage, the script will try to extract them from the bundle itself with the "`--appimage-extract` option", otherwise the launcher will have to be included in the script and the icon searched among files extracted or downloaded.
 
-There are also two other optional/obsolete steps, which are more oriented towards standalone use of the script, one is changing the permissions in the application directory (to allow updates with "AM" and without root privileges), the other it's a final message about the origin of the app... but no one knows "AM" anyway (I don't even know why I'm writing this guide... bah...).
+There are also two other optional/obsolete steps, which are more oriented towards standalone use of the script, one is changing the permissions in the application directory (to allow updates with "AM" and without root privileges), the other it's a final message about the origin of the app... but no one knows "AM"/"AppMan" anyway 😉
 
 -------------------------------
 
@@ -105,3 +105,7 @@ If you used the `-t` option to create the script, the message will definitely be
 This file is also created with the `-t` option, a template can be found at https://github.com/Portable-Linux-Apps/Portable-Linux-Apps.github.io/blob/main/apps/.template , which is the same one that is used as the basic model for compiling the pages of my catalogue, https://portable-linux-apps.github.io
 
 However, the use we have to make of it with "neodb" is to get information on the screen, from the terminal. If you don't load that file, using the `-a`/`about` option will give you an error message. This option (contained in the database.am module) removes the images, videos and buttons at the bottom (the ones you see in the template I linked to you), to display only the title, description and URL, but also adding the " status", i.e. whether the program is installed (and therefore also shows the occupied space) or not.
+
+-------------------------------
+
+# Conclusions
