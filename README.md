@@ -30,6 +30,9 @@ By convention, Markdorn files will have the same name as their respective script
 
 NOTE: You can give the directories any names you like, but the list must necessarily be called "**x86_64-apps**".
 
+-------------------------------
+
+
 # Step 2: create the script "neodb"
 With the data from step 1 (above) available, here's what the "neodb" script should look like:
 ```
@@ -55,3 +58,9 @@ The "$AMPATH" variable that you often find in the CLI and in modules indicates t
 - For "AM" the path is always /opt/am;
 - For "AppMan" instead is the "appman" directory into the path you decided to install the apps in your "$HOME", for example, if you've choosen "Applications", then the path will be $HOME/Applications/appman
 
+-------------------------------
+
+# Step 3: creata an installation script
+"AM"/"AppMan" have an inbuilt option named `-t` or `template` that takes some scripts from https://github.com/ivan-hc/AM/tree/main/templates depending on your needings.
+
+They are structured to be modified depending on whether you use "AppMan", but by default they are scripts for "AM". Only via the `-i`/`install` option can they be adapted to "AppMan", but they can be run completely standalone for a system-wide installation ("AM") but with the path to the launchers in / usr/share/applications (and this is why it is advisable to use "AM" to install them, in case /usr/share is read-only, the path will be changed to /usr/local/share).
