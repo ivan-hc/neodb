@@ -5,6 +5,7 @@ This is the complete guide to creating your own applications database manageable
 - [Step 2: create the script "neodb"](#step-2-create-the-script-neodb)
   - [Which options use the above variables?](#which-options-use-the-above-variables)
   - [Where should I place the "neodb" script?](#where-should-i-place-the-neodb-script)
+- [Step 3: create an installation script](#step-3-create-an-installation-script)
 -------------------------------
 
 # Step 1: create an online repository
@@ -60,7 +61,7 @@ The "$AMPATH" variable that you often find in the CLI and in modules indicates t
 
 -------------------------------
 
-# Step 3: creata an installation script
+# Step 3: create an installation script
 "AM"/"AppMan" have an inbuilt option named `-t` or `template` that takes some scripts from https://github.com/ivan-hc/AM/tree/main/templates depending on your needings.
 
 They are structured to be modified depending on whether you use "AppMan", but by default they are scripts for "AM". Only via the `-i`/`install` option can they be adapted to "AppMan", but they can be run completely standalone for a system-wide installation ("AM") but with the path to the launchers in / usr/share/applications (and this is why it is advisable to use "AM" to install them, in case /usr/share is read-only, the path will be changed to /usr/local/share).
