@@ -104,7 +104,7 @@ If you used the `-t` option to create the script, the message will definitely be
 # Step 5: the markdown
 This file is also created with the `-t` option, a template can be found at https://github.com/Portable-Linux-Apps/Portable-Linux-Apps.github.io/blob/main/apps/.template , which is the same one that is used as the basic model for compiling the pages of my catalogue, https://portable-linux-apps.github.io
 
-However, the use we have to make of it with "neodb" is to get information on the screen, from the terminal. If you don't load that file, using the `-a`/`about` option will give you an error message. This option (contained in the database.am module) removes the images, videos and buttons at the bottom (the ones you see in the template I linked to you), to display only the title, description and URL, but also adding the " status", i.e. whether the program is installed (and therefore also shows the occupied space) or not.
+However, the use we have to make of it with "neodb" is to get information on the screen, from the terminal. If you don't load that file, using the `-a`/`about` option will give you an error message. This option (contained in the [database.am](https://github.com/ivan-hc/AM/blob/main/modules/database.am) module) removes the images, videos and buttons at the bottom (the ones you see in the template I linked to you), to display only the title, description and URL, but also adding the " status", i.e. whether the program is installed (and therefore also shows the occupied space) or not.
 
 -------------------------------
 
