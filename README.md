@@ -109,3 +109,30 @@ However, the use we have to make of it with "neodb" is to get information on the
 -------------------------------
 
 # Conclusions
+I started making these changes to "AM"/"AppMan" for future commitments that might keep me away from my repositories, which are now too many to handle.
+
+If I look at my database today I can see applications that I didn't even know existed. And there are many more out there to upload that many of you would like to see in the repository.
+
+Maybe many of you will not agree with the fact that "AM"/"AppMan" manages both portable and AppImage archives, and perhaps you would like only AppImage packages or only archived programs... it's a matter of taste.
+
+Maybe some of you will have your own personal applications and would like a shorter and less invasive list, and a good way to integrate them into the system, without having to install daemons and runtimes of any kind without your knowledge.
+
+Maybe many of you are wary of github and prefer to use other sites, and don't have a Reddit account or any way to contact me and say "hey, I really wish you could publish this application".
+
+Maybe to some of you I may seem like a Tyrant, maintaining a database by myself and renaming applications in a different way than you would like.
+
+Maybe you would like to keep a brand in the launcher names, and do not want it to be renamed with the AM extension.
+
+Maybe, one day, my account will be deactivated (again) and you will still have a copy of "AM" or "AppMan" on your PC, to be able to draw from some database other than mine.
+
+Maybe you would like to open an organization and allow more people to decide what to upload and what not.
+
+Maybe you only want free and non-proprietary software, and vice versa.
+
+Maybe... maybe... maybe...
+
+Maybe you like "AM" or "AppMan", simply, despite everything.
+
+I wrote them because I was tired of waiting for someone to write them for me.
+
+"AM"/"AppMan" was born from a free choice, mine, and it is to your freedom of choice that I entrust you with what it can manage.
