@@ -42,3 +42,8 @@ AMCATALOGUEMARKDOWNS="https://your-domain.net/info"
 - **AMCATALOGUEMARKDOWNS** is used by `-a`/`about`
 - **NEODBFLAG** instead is a dumb variable, if uncommented, you will not receive any notification message about using a third-party database (see "AMCATALOGUE")
 
+### Where should I place the script?
+The "$AMPATH" variable that you often find in the CLI and in modules indicates the path:
+- For "AM" the path is always /opt/am;
+- For "AppMan" instead is the "appman" directory into the path you decided to install the apps in your "$HOME", for example, if you've choosen "Applications", then the path will be $HOME/Applications/appman
+
