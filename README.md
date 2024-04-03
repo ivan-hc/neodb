@@ -54,7 +54,7 @@ remember to make it executable, command `chmod a+x neodb`.
 ### Which options use the above variables?
 - **APPSDB** is used by `-i`/`install`, `-d`/`download` and `-s`/`sync`
 - **APPSLISTDB** is used by `-l`/`list` and `-q`/`query`
-- **AMCATALOGUE** is used by `-h`/`help` and from the main CLI "AM"/"AppMan" itself, but only to identify **and notify** the source of the apps
+- **AMCATALOGUE** is used by `-h`/`help` and from the main CLI "AM"/"AppMan" itself, but only to identify **and notify** the source of the apps (this value is optional, you would only get empty fields in `-h` or in messages, leaving it empty does not cause problems, except from an aesthetic point of view)
 - **AMCATALOGUEMARKDOWNS** is used by `-a`/`about`
 - **NEODBFLAG** instead is a dumb variable, if uncommented, you will not receive any notification message about using a third-party database (see "AMCATALOGUE")
 
