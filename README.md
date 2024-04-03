@@ -1,4 +1,4 @@
-This is the complete guide to creating your own application database manageable by "[AM](https://github.com/ivan-hc/AM)" and "[AppMan](https://github.com/ivan-hc/AppMan)", the APT/PacMan/DNF style AppImage package managers.
+This is the complete guide to creating your own application's database manageable by "[AM](https://github.com/ivan-hc/AM)" and "[AppMan](https://github.com/ivan-hc/AppMan)", the APT/PacMan/DNF style AppImage package managers.
 
 -------------------------------
 - [Step 1: create an online repository](#step-1-create-an-online-repository)
