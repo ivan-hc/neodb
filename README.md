@@ -2,9 +2,9 @@ This is the complete guide to creating your own applications database manageable
 
 -------------------------------
 - [Step 1: create an online repository](#step-1-create-an-online-repository)
-- [Step 2: create the script "neodb"](#step-2-create-the-script-neodb)
-  - [Which options use the above variables?](#which-options-use-the-above-variables)
-  - [Where should I place the "neodb" script?](#where-should-i-place-the-neodb-script)
+- [Step 2: create thet "neodb" configuration file](#step-2-create-the-neodb-configuration-file)
+  - [Which options use the above values?](#which-options-use-the-above-values)
+  - [Where should I place the "neodb" file?](#where-should-i-place-the-neodb-file)
 - [Step 3: create an installation script](#step-3-create-an-installation-script)
   - [Is it mandatory to use templates for "AM"?](#is-it-mandatory-to-use-templates-for-am)
   - [How do "AM" installation scripts work?](#how-do-am-installation-scripts-work)
@@ -38,27 +38,25 @@ NOTE: You can give the directories any names you like, but the list must necessa
 
 -------------------------------
 
-# Step 2: create the script "neodb"
-With the data from step 1 (above) available, here's what the "neodb" script should look like:
+# Step 2: create the "neodb" configuration file
+With the data from step 1 (above) available, here's what the "neodb" file should look like:
 ```
-#!/usr/bin/env bash
+#STATUS=quite
 
-APPSDB="https://your-domain.net/apps"
-APPSLISTDB="https://your-domain.net/x86_64-apps"
-AMCATALOGUE="https://your-domain.net"
-AMCATALOGUEMARKDOWNS="https://your-domain.net/info"
-#NEODBFLAG=nowarn
+[My generic repository name]
+Source=https://your-domain.net/apps
+List=https://your-domain.net/x86_64-apps
+Markdowns=https://your-domain.net/info
 ```
-remember to make it executable, command `chmod a+x neodb`.
 
-### Which options use the above variables?
-- **APPSDB** is used by `-i`/`install`, `-d`/`download` and `-s`/`sync`
-- **APPSLISTDB** is used by `-l`/`list` and `-q`/`query`
-- **AMCATALOGUE** is used by `-h`/`help` and from the main CLI "AM"/"AppMan" itself, but only to identify **and notify** the source of the apps (this value is optional, leaving it empty does not cause problems, except from an aesthetic point of view, i.e. you would only get empty fields in `-h` or in messages)
-- **AMCATALOGUEMARKDOWNS** is used by `-a`/`about`
-- **NEODBFLAG** instead is a dumb variable, if uncommented, you will not receive any notification message about using a third-party database (see "AMCATALOGUE")
+### Which options use the above values?
+- **Source** is used by `-i`/`install` and `-d`/`download`
+- **List** is used by `-l`/`list` and `-q`/`query`
+- **Markdowns** is used by `-a`/`about`
 
-### Where should I place the "neodb" script?
+**STATUS=quite** instead is called by "AM"/"AppMan", if uncommented, you will not receive any notification message about using a third-party database
+
+### Where should I place the "neodb" file?
 The "$AMPATH" variable that you often find in the CLI and in modules indicates the path:
 - For "AM" the path is always /opt/am;
 - For "AppMan" instead is the "appman" directory into the path you decided to install the apps in your "$HOME", for example, if you've choosen "Applications", then the path will be $HOME/Applications/appman
