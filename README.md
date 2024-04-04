@@ -41,7 +41,7 @@ NOTE: You can give the directories any names you like, but the list must necessa
 # Step 2: create the "neodb" configuration file
 With the data from step 1 (above) available, here's what the "neodb" file should look like:
 ```
-#STATUS=quite
+#STATUS=quiet
 
 [My generic repository name]
 Source=https://your-domain.net/apps
@@ -54,7 +54,7 @@ Markdowns=https://your-domain.net/info
 - **List** is used by `-l`/`list` and `-q`/`query`
 - **Markdowns** is used by `-a`/`about` (NOTE, this is still not implemented in version 6.4, it can be ignored for now)
 
-**STATUS=quite** instead is called by "AM"/"AppMan", if uncommented, you will not receive any notification message about using a third-party database
+**#STATUS=quiet** instead is called by "AM"/"AppMan", if uncommented, you will not receive any notification message about using a third-party database
 
 ### Where should I place the "neodb" file?
 The "$AMPATH" variable that you often find in the CLI and in modules indicates the path:
