@@ -52,7 +52,7 @@ Markdowns=https://your-domain.net/info
 ### Which options use the above values?
 - **Source** is used by `-i`/`install` and `-d`/`download`
 - **List** is used by `-l`/`list` and `-q`/`query`
-- **Markdowns** is used by `-a`/`about`
+- **Markdowns** is used by `-a`/`about` (NOTE, this is still not implemented in version 6.4, it can be ignored for now)
 
 **STATUS=quite** instead is called by "AM"/"AppMan", if uncommented, you will not receive any notification message about using a third-party database
 
