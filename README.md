@@ -9,7 +9,8 @@ This is the complete guide to creating your own applications database manageable
   - [Is it mandatory to use templates for "AM"?](#is-it-mandatory-to-use-templates-for-am)
   - [How do "AM" installation scripts work?](#how-do-am-installation-scripts-work)
 - [Step 4: the list](#step-4-the-list)
-- [Step 5: the markdown](#step-5-the-markdown)
+  - [The importance of spaces: the name](#the-importance-of-spaces-the-name)
+  - [The importance of spaces: the description](#the-importance-of-spaces-the-description)
 - [Conclusions](#conclusions)
 -------------------------------
 
@@ -26,15 +27,10 @@ https://your-domain.net
   |    |__ appN
   |
   |__ x86_64-apps # this is a text file, the list of the apps available in the directory "apps" above, this is the name you must give to this list
-  |
-  |__ info # this is the directory containing the info files in Markdown format that will be managed by the option "-a" or "about"
-      |__ app1.md
-      |__ app2.md
-      |__ appN.md
-  ```
-By convention, Markdorn files will have the same name as their respective script, but with the .md extension.
 
-NOTE: You can give the directories any names you like, but the list must necessarily be called "**x86_64-apps**".
+```
+
+NOTE: You can give the app's directory any name you like, but the list must necessarily be called "**x86_64-apps**".
 
 -------------------------------
 
@@ -46,13 +42,11 @@ With the data from step 1 (above) available, here's what the "neodb" file should
 [My generic repository name]
 Source=https://your-domain.net/apps
 List=https://your-domain.net/x86_64-apps
-Markdowns=https://your-domain.net/info
 ```
 
 ### Which options use the above values?
 - **Source** is used by `-i`/`install` and `-d`/`download`
-- **List** is used by `-l`/`list` and `-q`/`query`
-- **Markdowns** is used by `-a`/`about` (NOTE, this is still not implemented in version 6.4, it can be ignored for now)
+- **List** is used by `-l`/`list`, `-q`/`query` and `-a`/`about`
 
 **#STATUS=quiet** instead is called by "AM"/"AppMan", if uncommented, you will not receive any notification message about using a third-party database
 
@@ -87,26 +81,53 @@ There are also two other optional/obsolete steps, which are more oriented toward
 # Step 4: the list
 To allow other modules to use the names from the list (for example, including them among the terms to use with "`bash-completion`" or to create other lists) this formatting is needed:
 ```
-◆ app1 : Description for this application
-◆ app2 : Description for another app
-◆ appN : Also this is a description
+◆ app1 : Description for this application                                        SOURCE: https://siteoftheapp1.com
+◆ app2 : Description for another app but with a mor longer description that has more than 80 characters in total... SOURCE: SOURCE: https://siteoftheapp2.net
+◆ appN : Also this is a description, but shorter than the one above              SOURCE: https://siteoftheappN.org
 ```
-NOTE the spaces around the application name. Those are important in order to separate names from symbols and description.
+### The importance of spaces: the name
+The spaces around the application name are needed to give an exact name to the argument, and they are also used in "bash-completion".
 
-As for the length of the description, you are free to use as much space as you like. I usually try not to exceed 80 characters in total (maximum space occupied by default by many terminal windows).
+This is the exact syntax:
+```
+◆ appname : Description...
+```
+
+Those are important in order to separate names from symbols and description.
+
+### The importance of spaces: the description
+As for the length of the description, you are free to use as much space as you like. I usually try not to exceed 80 characters in total, being this the maximum space occupied by default by many terminal emulators.
+
+However, **since yours is a third-party script**, the following mechanisms have been introduced in the various options that will make use of it:
+- options `-l`/`list` and `-q`/`query` will display a maximum of 80 characters in total, truncating the description;
+- option `-a`/`about` will show the entire description, dividing the various points in order to also obtain a URL necessary to complete the description, including the "SOURCE".
+
+This change was implemented by version 6.4.1 of "AM"/"AppMan", to allow third-party repository maintainers to use a single text file instead of creating a separate .md file, and thus facilitate compilation of the "neodb" configuration file.
+
+This is the exact syntax, we will use a real app as an example:
+```
+◆ 0ad-latest : Real Time Strategy game of ancient warfare (development branch). SOURCE: https://github.com/0ad-matters/0ad-appimage
+```
+the above is how it would appear in your x86_64-apps file.
+
+NOTE: I wrote the "SOURCE:" entry after 80 characters to prevent displaying truncated URLs, that may be dangerous!
+
+As follow you can see how it will appear, in `-q`/`query` and `-a`/`about`:
+
+![Istantanea_2024-04-06_22-17-52 png](https://github.com/ivan-hc/neodb/assets/88724353/61790abe-48a0-4ec6-8c92-6ad9b8f810d7)
+
+To learn more on how it works, see the function "`generate_3rd_party`" in [database.am](https://github.com/ivan-hc/AM/blob/main/modules/database.am).
 
 If you used the `-t` option to create the script, the message will definitely be in the "list" file created near the x86_64 directory (on the desktop, in the "am-scripts" directory).
+
+Then all you need is to do is to complete the description by adding the "URL" as it follows
+```
+...this is the end of the description. SOURCE: https://github.com/ivan-hc/neodb
+```
 
 NOTE: remember to call the list "x86_64-apps".
 
 In our example we are working on a 64bit/amd64 architecture. If you intend to use "AM"/"AppMan" to manage programs for other architectures, remember to name the file including that architecture (for example, on 32bit systems the file should be called "i686-apps", for ARM64 instead " aarch64-apps", and so on...). Use the "`echo "$HOSTTYPE"`" command to discover your architecture. it is already included in the main CLI (see "$arch" environment variable) to manage multiple architectures if the application database includes multiple architectures.
-
--------------------------------
-
-# Step 5: the markdown
-This file is also created with the `-t` option, a template can be found at https://github.com/Portable-Linux-Apps/Portable-Linux-Apps.github.io/blob/main/apps/.template , which is the same one that is used as the basic model for compiling the pages of my catalogue, https://portable-linux-apps.github.io
-
-However, the use we have to make of it with "neodb" is to get information on the screen, from the terminal. If you don't load that file, using the `-a`/`about` option will give you an error message. This option (contained in the [database.am](https://github.com/ivan-hc/AM/blob/main/modules/database.am) module) removes the images, videos and buttons at the bottom (the ones you see in the template I linked to you), to display only the title, description and URL, but also adding the " status", i.e. whether the program is installed (and therefore also shows the occupied space) or not.
 
 -------------------------------
 
