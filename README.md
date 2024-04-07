@@ -99,7 +99,7 @@ Those are important in order to separate names from symbols and description.
 As for the length of the description, you are free to use as much space as you like. I usually try not to exceed 80 characters in total, being this the maximum space occupied by default by many terminal emulators.
 
 However, **since yours is a third-party script**, the following mechanisms have been introduced in the various options that will make use of it:
-- options `-l`/`list` and `-q`/`query` will display a maximum of 80 characters in total, truncating the description and removing URLs (being a truncated URL be dangerous);
+- options `-l`/`list` and `-q`/`query` will display a maximum of 80 characters in total, truncating the description and removing URLs (being truncated URLs dangerous);
 - option `-a`/`about` will show the entire description, dividing the various points in order to also obtain a URL necessary to complete the description, including the "SOURCE".
 
 This change was implemented by version 6.4.1 of "AM"/"AppMan", to allow third-party repository maintainers to use a single text file instead of creating a separate .md file, and thus facilitate compilation of the "neodb" configuration file.
