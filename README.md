@@ -10,7 +10,7 @@ This is the complete guide to creating your own applications database manageable
   - [How do "AM" installation scripts work?](#how-do-am-installation-scripts-work)
 - [Step 4: the list](#step-4-the-list)
   - [The importance of spaces: the name](#the-importance-of-spaces-the-name)
-  - [The importance of spaces: the description](#the-importance-of-spaces-the-description)
+  - [The description](#the-description)
 - [Conclusions](#conclusions)
 -------------------------------
 
@@ -81,9 +81,9 @@ There are also two other optional/obsolete steps, which are more oriented toward
 # Step 4: the list
 To allow other modules to use the names from the list (for example, including them among the terms to use with "`bash-completion`" or to create other lists) this formatting is needed:
 ```
-◆ app1 : Description for this application                                        SOURCE: https://siteoftheapp1.com
-◆ app2 : Description for another app but with a mor longer description that has more than 80 characters in total... SOURCE: SOURCE: https://siteoftheapp2.net
-◆ appN : Also this is a description, but shorter than the one above              SOURCE: https://siteoftheappN.org
+◆ app1 : Description for this application. SOURCE: https://siteoftheapp1.com
+◆ app2 : Description for another app but with a mor longer description that has more than 80 characters in total... SOURCE: https://siteoftheapp2.net
+◆ appN : Also this is a description, but shorter than the one above. SOURCE: https://siteoftheappN.org
 ```
 ### The importance of spaces: the name
 The spaces around the application name are needed to give an exact name to the argument, and they are also used in "bash-completion".
@@ -95,11 +95,11 @@ This is the exact syntax:
 
 Those are important in order to separate names from symbols and description.
 
-### The importance of spaces: the description
+### The description
 As for the length of the description, you are free to use as much space as you like. I usually try not to exceed 80 characters in total, being this the maximum space occupied by default by many terminal emulators.
 
 However, **since yours is a third-party script**, the following mechanisms have been introduced in the various options that will make use of it:
-- options `-l`/`list` and `-q`/`query` will display a maximum of 80 characters in total, truncating the description;
+- options `-l`/`list` and `-q`/`query` will display a maximum of 80 characters in total, truncating the description and removing URLs (being a truncated URL be dangerous);
 - option `-a`/`about` will show the entire description, dividing the various points in order to also obtain a URL necessary to complete the description, including the "SOURCE".
 
 This change was implemented by version 6.4.1 of "AM"/"AppMan", to allow third-party repository maintainers to use a single text file instead of creating a separate .md file, and thus facilitate compilation of the "neodb" configuration file.
@@ -109,8 +109,6 @@ This is the exact syntax, we will use a real app as an example:
 ◆ 0ad-latest : Real Time Strategy game of ancient warfare (development branch). SOURCE: https://github.com/0ad-matters/0ad-appimage
 ```
 the above is how it would appear in your x86_64-apps file.
-
-NOTE: I wrote the "SOURCE:" entry after 80 characters to prevent displaying truncated URLs, that may be dangerous!
 
 As follow you can see how it will appear, in `-q`/`query` and `-a`/`about`:
 
